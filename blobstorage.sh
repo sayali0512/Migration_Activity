@@ -52,7 +52,7 @@ az storage blob upload \
 # az storage blob upload -f /path/to/file -c MyContainer -n MyBlob
 
 az storage blob upload -f /home/azureadmin/wordpress.txt -c abs5nw26r -n testcontainer
-
+key=ZJHjzd5HgToRiVx/W7r87f+kO792/dtYNwfEem0h5BPeuSli46k0s5gVLbqyTYG1fUB/cdlPuSNKth2PmhlyAg==
 # az storage blob upload --account-name mystorageaccount --account-key 0000-0000 --container-name mycontainer --file /path/to/file --name myblob
-az storage blob upload --account-name abs5nw26r --account-key ZJHjzd5HgToRiVx/W7r87f+kO792/dtYNwfEem0h5BPeuSli46k0s5gVLbqyTYG1fUB/cdlPuSNKth2PmhlyAg== --container-name testcontainer --file /home/azureadmin/wordpress.txt --name myblob
+az storage blob upload --account-name abs5nw26r --account-key $key --container-name testcontainer --file /home/azureadmin/wordpress.txt --name myblob
 
