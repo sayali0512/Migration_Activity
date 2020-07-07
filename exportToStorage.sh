@@ -18,7 +18,7 @@ create_storageaccount(){
 }
 # create a container in Storage account
 create_container(){
-    az storage container create --account-name ${storage_name} --name ${container_name} --auth-mode login
+    az storage container create --account-name ${storage_name} --name ${container_name} --account-key ${storage_key}
 }
 # upload files to blob
 upload_files(){
@@ -28,8 +28,8 @@ upload_files(){
 
 create_rg >> /home/azureadmin/asif/storage_logs.txt
 create_storageaccount >> /home/azureadmin/asif/storage_logs.txt
-create_container >> /home/azureadmin/asif/storage_logs.txt
 storage_key=$(az storage account keys list -g ${rg_name} -n ${storage_name} | jq '.[0] | .value')
+create_container >> /home/azureadmin/asif/storage_logs.txt
 upload_files >> /home/azureadmin/asif/storage_logs.txt
 
 # az storage blob upload --account-name po09oi --account-key t5HNr7gOd6JhcpTFbemYO+KE2TOLaBntFFsV1DFj5Fy2YOpsHQA+awmZ+6MVu9HOYzJw8kv+UEyp6uRX9J9x4g== --container-name newcont --file /home/azureadmin/storage.tar --name storage.tar
