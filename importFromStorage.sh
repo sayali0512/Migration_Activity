@@ -9,8 +9,8 @@ blob_storage=$5
 storage_key=$6
 download_content()
 {
-    az storage blob download --account-name $2 --container-name $3 --name $5 --file /home/$4/$5 --account-key $6
+    az storage blob download --account-name $storage_name --container-name $container_name --name $blob_storage --file /home/$user_name/$blob_storage --account-key $storage_key
 }
-download_content >> import.txt
+download_content >> /home/$user_name/logimport.txt
 
 
