@@ -1,13 +1,16 @@
 #!/bin/bash
 # Parameters
-rg_name=storageblob
-storage_name=p3io9o8
-container_name=newcont
-file_path=/home/azureadmin/asif/wordpress.txt
-blob_storage=wordpress.txt
-storage_key=$(az storage account keys list -g ${rg_name} -n ${storage_name} | jq '.[0] | .value')
+rg_name=$1
+storage_name=$2
+container_name=$3
+user_name=$4
+file_path=/home/$4/$5
+blob_storage=$5
+storage_key=$6
 download_content()
 {
-    az storage blob download --account-name ${storage_name} --container-name {container_name} --name ${blob_storage} --file ${file_path} --account-key ${storage_key}
+    az storage blob download --account-name $2 --container-name $3 --name $5 --file /home/$4/$5 --account-key $6
 }
 download_content >> import.txt
+
+
