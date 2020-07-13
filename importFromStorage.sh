@@ -13,8 +13,8 @@ SAS_token=$7
 
 download_content()
 {
-    az storage blob download --account-name $storage_name --container-name $container_name --name $blob_storage --file /home/$user_name/$blob_storage --sas-token "$SAS_token"
-}
+ az storage blob download --account-name $storage_name --container-name $container_name --name $blob_storage  --file /home/$user_name/$blob_storage --sas-token "$SAS_token"
+ }
 download_content >> /home/$user_name/logimport.txt
 
 
