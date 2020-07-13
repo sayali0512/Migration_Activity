@@ -8,9 +8,16 @@ file_path=/home/$4/$5
 blob_storage=$5
 storage_key=$6
 
+
+create_container(){
+azcopy make "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"
+}
 # upload files to blob
 upload_files(){
     az storage blob upload --account-name $storage_name --account-key $6 --container-name $container_name --file /home/$user_name/$blob_storage --name $blob_storage
 }
+
+
+create_container
 upload_files >> /home/azureadmin/storage_logs.txt
 
