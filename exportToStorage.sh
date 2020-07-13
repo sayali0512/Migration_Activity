@@ -17,7 +17,7 @@ echo blob_storage=$6
 
 # upload files to blob
 upload_files(){
-az storage blob upload --account-name $storage_name --container-name $container_name/$lb_name/$vm_name --file /home/$user_name/$blob_storage --name $blob_storage --sas-token "$SAS_token" --auth-mode login
+az storage blob upload --account-name $storage_name --container-name $container_name/$lb_name/$vm_name --file /home/$user_name/$blob_storage --name $blob_storage --sas-token "$SAS_token"
 
 }
 
