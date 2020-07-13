@@ -17,7 +17,3 @@ az storage blob upload --account-name $storage_name --container-name $container_
 
 
 upload_files >> /home/azureadmin/storage_logs.txt
-
-
-
-
