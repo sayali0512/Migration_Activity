@@ -1,6 +1,5 @@
 #!/bin/bash
 # Parameters
-rg_name=$1
 storage_name=$2
 container_name=$3
 user_name=$4
