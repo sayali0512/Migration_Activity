@@ -5,9 +5,9 @@ lb_name=$2
 vm_name=$3
 container_name=$4
 user_name=$5
-file_path=/home/$5/$7
-blob_storage=$7
-SAS_token=$8
+file_path=/home/$5/$6
+blob_storage=$6
+SAS_token=$7
 
 
 
