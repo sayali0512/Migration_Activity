@@ -10,7 +10,7 @@ storage_key=$6
 
 
 create_container(){
-azcopy make "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"
+ sudo azcopy make "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"
 }
 # upload files to blob
 upload_files(){
