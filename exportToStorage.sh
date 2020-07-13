@@ -14,8 +14,7 @@ create_container(){
 }
 # upload files to blob
 upload_files(){
-  az storage blob upload --account-name abs5nw26r --container-name migration --file /home/azureadmin/storage.tar --name storage.tar --sas-token sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D
-}
+  sudo azcopy copy "/home/azureadmin/storage.tar” "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"}
 
 
 create_container
