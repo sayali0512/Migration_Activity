@@ -13,7 +13,7 @@ SAS_token=$8
 
 # upload files to blob
 upload_files(){
-az storage blob upload --account-name $storage_name --container-name $container_name/$2/$3 --file /home/$5/$7 --name $7 --sas-token "$8" --auth-mode login
+az storage blob upload --account-name $storage_name --container-name $container_name/$lb_name/$vm_name --file /home/$user_name/$blob_storage --name $blob_storage --sas-token "$SAS_token" --auth-mode login
 
 }
 
