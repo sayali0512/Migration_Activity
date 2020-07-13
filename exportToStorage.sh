@@ -9,11 +9,6 @@ file_path=/home/$5/$6
 blob_storage=$6
 SAS_token=$7
 
-echo blob_storage=$6
-
-
-
-
 
 # upload files to blob
 upload_files(){
