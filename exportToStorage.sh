@@ -1,25 +1,23 @@
 #!/bin/bash
 # Export the storage.tar file to  Azure blob storage account
-rg_name=$1
-storage_name=$2
-container_name=$3
-user_name=$4
-file_path=/home/$4/$5
-blob_storage=$5
-storage_key=$6
+storage_name=abs5nw26r
+container_name=migration
+user_name=azureadmin
+file_path=/home/azureadmin/backup.txt
+blob_storage=backup.txt
+SAS_token=?sv=2019-10-10&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-07-13T14:57:37Z&st=2020-07-13T06:57:37Z&spr=https&sig=VFdiIJmx3pnMdTcIMagmphRBCvYK8wyHJ7nDcHaOBqE%3D
 
 
-create_container(){
- sudo azcopy make "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"
-}
+
 # upload files to blob
 upload_files(){
-  sudo azcopy copy "/home/azureadmin/storage.tar" "https://abs5nw26r.blob.core.windows.net/migration?sv=2019-10-10&ss=bfqt&srt=c&sp=rwdlacupx&se=2020-07-30T12:56:55Z&st=2020-07-13T04:56:55Z&spr=https&sig=X%2FjxNTzddNWM5DQZJDFHJcE9303lsB%2BiBbySgdFt4LQ%3D"
-  
+az storage blob upload --account-name $storage_name --container-name $container_name --file /home/azureadmin/backup.txt --name backup.txt --sas-token "$SAS_token"  
   
 }
 
 
-create_container
 upload_files >> /home/azureadmin/storage_logs.txt
+
+
+
 
