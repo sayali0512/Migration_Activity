@@ -13,21 +13,16 @@
  wp_data_path=${10}    # /azlamp/data
 
 copysitetostorage(){
-
 sudo mkdir $storage_dir_path
 sudo mkdir $storage_dir_path/site
 sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/site
 }
 
 copydatatostorage(){
-
 sudo mkdir $storage_dir_path/data
 sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/data
-
-
 }
 createstoragezip(){
-
 tar cf $storage_dir_path.tar $storage_dir_path/
 }
 
@@ -39,5 +34,5 @@ az storage blob upload --account-name $storage_name --container-name $container_
 
 copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
-createstoragezip >> /home/azureadmin/storage_logs.txt
-upload_files >> /home/azureadmin/storage_logs.txt
+createstoragezip >> /tmp/storage_logs.txt
+upload_files >> /tmp/storage_logs.txt
