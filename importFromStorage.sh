@@ -3,16 +3,15 @@
 
 
 storage_name=$1
-lb_name=$2
-vm_name=$3
-container_name=$4/$8/$3
-user_name=$5
-file_path=/home/$5/$6
-blob_storage=$6
-SAS_token=$7
-source_dns_name=$8   #lb-5nw26r.eastus.cloudapp.azure.com
-wp_path=$9   # /azlamp/html
-wp_data_path=${10}    # /azlamp/data
+vm_name=$2
+container_name=$3/$7/$2
+user_name=$4
+file_path=/home/$4/$5
+blob_storage=$5
+SAS_token=$6
+source_dns_name=$7   #lb-5nw26r.eastus.cloudapp.azure.com
+wp_path=$8  # /azlamp/html
+wp_data_path=$9   # /azlamp/data
 
 download_content()
 {
