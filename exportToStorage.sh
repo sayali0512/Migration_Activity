@@ -2,7 +2,7 @@
 
 echo storage_name=$1
 echo vm_name=$2
-echo container_name=$3/$source_dns_name/$vm_name
+echo container_name=$3/$8/$2
 echo user_name=$4
 echo file_path=/home/$4/$5
 echo blob_storage=$5
