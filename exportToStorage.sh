@@ -16,14 +16,12 @@ copysitetostorage(){
 
 sudo mkdir $storage_dir_path
 sudo mkdir $storage_dir_path/site
-echo sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/site
 sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/site
 }
 
 copydatatostorage(){
 
 sudo mkdir $storage_dir_path/data
-echo sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/data
 sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/data
 
 
