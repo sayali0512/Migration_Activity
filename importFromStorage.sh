@@ -5,7 +5,7 @@
 storage_name=$1
 lb_name=$2
 vm_name=$3
-container_name=$4/$lb_name/$vm_name
+container_name=$4/$8/$3
 user_name=$5
 file_path=/home/$5/$6
 blob_storage=$6
