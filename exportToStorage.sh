@@ -1,16 +1,16 @@
 #!/bin/bash
 
-echo storage_name=$1
-echo vm_name=$2
-echo container_name=$3/$8/$2
-echo user_name=$4
-echo file_path=/home/$4/$5
-echo blob_storage=$5
-echo SAS_token=$6
-echo storage_dir_path=$7  #/home/azureadmin/storage
-echo source_dns_name=$8   #lb-5nw26r.eastus.cloudapp.azure.com
-echo wp_path=$9   # /azlamp/html
-echo wp_data_path=${10}    # /azlamp/data
+ storage_name=$1
+ vm_name=$2
+ container_name=$3/$8/$2
+ user_name=$4
+ file_path=/home/$4/$5
+ blob_storage=$5
+ SAS_token=$6
+ storage_dir_path=$7  #/home/azureadmin/storage
+ source_dns_name=$8   #lb-5nw26r.eastus.cloudapp.azure.com
+ wp_path=$9   # /azlamp/html
+ wp_data_path=${10}    # /azlamp/data
 
 copysitetostorage(){
 
