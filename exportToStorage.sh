@@ -39,6 +39,5 @@ az storage blob upload --account-name $storage_name --container-name $container_
 
 copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
-databaseexport >> /home/azureadmin/storage_logs.txt
 createstoragezip >> /home/azureadmin/storage_logs.txt
 upload_files >> /home/azureadmin/storage_logs.txt
