@@ -22,7 +22,7 @@ copydatatostorage(){
 sudo mkdir $storage_dir_path/data
 sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/data
 }
-createstoragezip(){
+createstoragetar(){
 tar cf $storage_dir_path.tar $storage_dir_path/
 }
 
