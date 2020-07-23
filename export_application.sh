@@ -1,38 +1,59 @@
 #!/bin/bash
 
- storage_name=$1
- vm_name=$2
- container_name=$3/$8/$2
- user_name=$4
- file_path=/home/$4/$5
- blob_storage=$5
- SAS_token=$6
- storage_dir_path=$7  #/home/azureadmin/storage
- source_dns_name=$8   #lb-5nw26r.eastus.cloudapp.azure.com
- wp_path=$9   # /azlamp/html
- wp_data_path=${10}    # /azlamp/data
+storage_name=$1                   # storage account name
+container_name=$2                 # container name
+user_name=$3                      # user name
+file_path=/home/$3/$4.tar         # tar file path /home/azureadmin/storage.tar  $4=storage.tar
+blob_storage=$6/$HOSTNAME/$4.tar  # blob file name /vmname/
+SAS_token=$5                      # SAS token
+storage_dir_path=/home/$3/$4      # storage folder path /home/azureadmin/storage $4=storage
+source_dns_name=$6                # dns name
+wp_path=$7                        # azlamp/html
+wp_data_path=$8                   # azlamp/data
 
 copysitetostorage(){
-sudo mkdir $storage_dir_path
-sudo mkdir $storage_dir_path/site
-sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/site
+    echo "copysitetostorage"
+    sudo mkdir $storage_dir_path
+    sudo mkdir $storage_dir_path/$HOSTNAME
+    sudo mkdir $storage_dir_path/$HOSTNAME/site
+    sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/$HOSTNAME/site
 }
 
 copydatatostorage(){
-sudo mkdir $storage_dir_path/data
-sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/data
+    echo "copydatatostorage"
+    sudo mkdir $storage_dir_path/$HOSTNAME/data
+    sudo cp -rf $wp_data_path/$source_dns_name $storage_dir_path/$HOSTNAME/data
 }
+
 createstoragetar(){
-tar cf $storage_dir_path.tar $storage_dir_path/
+    echo "create storage tar"
+    tar cf $storage_dir_path.tar $storage_dir_path
 }
 
-# upload files to blob
-upload_files(){
-az storage blob upload --account-name $storage_name --container-name $container_name --file /home/$user_name/$blob_storage --name $blob_storage --sas-token "$SAS_token"
+create_container(){
+    echo "create_container"
+    az storage container create --account-name $storage_name --name $container_name --sas-token $SAS_token
+}
+install_azcopy(){
+    #Download AzCopy
+    wget https://aka.ms/downloadazcopy-v10-linux
+    #Expand Archive
+    tar -xvf downloadazcopy-v10-linux
+    #(Optional) Remove existing AzCopy version
+    sudo rm /usr/bin/azcopy
+    #Move AzCopy to the destination you want to store it
+    sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 
+}
+
+upload_files(){
+    echo "upload_files"
+    az storage blob upload --account-name $storage_name --container-name $container_name --file $file_path --name $blob_storage --sas-token $SAS_token
+    sudo azcopy copy '$file_path' 'https://$storage_name.blob.core.windows.net/$container_name/$$SAS_token'
 }
 
 copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
-createstoragezip >> /tmp/storage_logs.txt
+createstoragetar >> /tmp/storage_logs.txt
+create_container >> /tmp/storage_logs.txt
 upload_files >> /tmp/storage_logs.txt
