@@ -1,15 +1,15 @@
 #!/bin/bash
 
-storage_name=$1                   # storage account name
-container_name=$2                 # container name
-user_name=$3                      # user name
-file_path=/home/$3/$4.tar         # tar file path /home/azureadmin/storage.tar  $4=storage.tar
-blob_storage=home/$3/$4.tar  # blob file name /vmname/
-SAS_token=$5                      # SAS token
-storage_dir_path=/home/$3/$4      # storage folder path /home/azureadmin/storage $4=storage
-source_dns_name=$6                # dns name
-wp_path=$7                        # azlamp/html
-wp_data_path=$8                   # azlamp/data
+echo storage_name=$1                   # storage account name
+echo container_name=$2                 # container name
+echo user_name=$3                      # user name
+echo file_path=/home/$3/$4.tar         # tar file path /home/azureadmin/storage.tar  $4=storage.tar
+echo blob_storage=home/$3/$4.tar  # blob file name /vmname/
+echo SAS_token=$5                      # SAS token
+echo storage_dir_path=/home/$3/$4      # storage folder path /home/azureadmin/storage $4=storage
+echo source_dns_name=$6                # dns name
+echo wp_path=$7                        # azlamp/html
+echo wp_data_path=$8                   # azlamp/data
 
 copysitetostorage(){
     echo "copysitetostorage"
