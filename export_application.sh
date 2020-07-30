@@ -57,4 +57,5 @@ copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
 createstoragetar >> /tmp/storage_logs.txt
 create_container >> /tmp/storage_logs.txt
+install_azcopy  >> /tmp/storage_logs.txt
 upload_files >> /tmp/storage_logs.txt
