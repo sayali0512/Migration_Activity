@@ -35,6 +35,18 @@ create_container(){
     az storage container create --account-name $storage_name --name $container_name --sas-token $SAS_token
 }
 
+install_azcopy(){
+    #Download AzCopy
+    wget https://aka.ms/downloadazcopy-v10-linux
+    #Expand Archive
+    tar -xvf downloadazcopy-v10-linux
+    #(Optional) Remove existing AzCopy version
+    sudo rm /usr/bin/azcopy
+    #Move AzCopy to the destination you want to store it
+    sudo cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
+
+}
+
 upload_files(){
     echo "upload_files"
     #az storage blob upload --account-name $storage_name --container-name $container_name --file $file_path --name $blob_storage --sas-token $SAS_token
@@ -46,4 +58,5 @@ copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
 createstoragetar >> /tmp/storage_logs.txt
 create_container >> /tmp/storage_logs.txt
+#install_azcopy  >> /tmp/storage_logs.txt
 upload_files >> /tmp/storage_logs.txt
