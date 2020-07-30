@@ -15,7 +15,7 @@ copysitetostorage(){
     echo "copysitetostorage"
     sudo mkdir -p "$storage_dir_paths"
     sudo mkdir -p "$storage_dir_path"/"$source_dns_name"
-    sudo mkdir -p :$storage_dir_path"/"$source_dns_name"/site
+    sudo mkdir -p "$storage_dir_path"/"$source_dns_name"/site
     sudo cp -rf $wp_path/$source_dns_name/ $storage_dir_path/$source_dns_name/site
 }
 
