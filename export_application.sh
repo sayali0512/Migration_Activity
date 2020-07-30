@@ -48,7 +48,8 @@ install_azcopy(){
 
 upload_files(){
     echo "upload_files"
-     sudo azcopy copy '$file_path' 'https://$storage_name.blob.core.windows.net/container_name/$source_dns_name/$SAS_token'
+    sudo azcopy copy '$file_path' 'https://$storage_name.blob.core.windows.net/container_name/$source_dns_name/$SAS_token'
+}
 
 copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
