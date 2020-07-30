@@ -38,7 +38,7 @@ create_container(){
 upload_files(){
     echo "upload_files"
     #az storage blob upload --account-name $storage_name --container-name $container_name --file $file_path --name $blob_storage --sas-token $SAS_token
-    azcopy copy '$blob_storage' 'https://$storage_name.blob.core.windows.net/container_name/$SAS_token'
+    sudo azcopy copy '$blob_storage' 'https://$storage_name.blob.core.windows.net/container_name/$SAS_token'
 }
 
 
