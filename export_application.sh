@@ -27,7 +27,7 @@ copydatatostorage(){
 
 createstoragetar(){
     echo "create storage tar"
-    tar cf $storage_dir_path.tar $storage_dir_path
+    tar cf $storage_dir_path.tar --absolute-names $storage_dir_path
 }
 
 create_container(){
