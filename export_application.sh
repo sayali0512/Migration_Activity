@@ -34,7 +34,6 @@ create_container(){
     echo "create_container"
     az storage container create --account-name $storage_name --name $container_name --sas-token $SAS_token
 }
-
 install_azcopy(){
     #Download AzCopy
     wget https://aka.ms/downloadazcopy-v10-linux
@@ -47,10 +46,13 @@ install_azcopy(){
 
 }
 
+
 upload_files(){
     echo "upload_files"
-    #az storage blob upload --account-name $storage_name --container-name $container_name --file $file_path --name $blob_storage --sas-token $SAS_token
-    sudo azcopy copy '$blob_storage' 'https://$storage_name.blob.core.windows.net/$container_name/$SAS_token'
+   #az storage blob upload --account-name $storage_name --container-name $container_name --file $file_path --name $blob_storage --sas-token $SAS_token
+  sudo azcopy copy '/home/azureadmin/storage.tar' 'https://abs5nw26r.blob.core.windows.net/migration/lb-5nw26r.eastus.cloudapp.azure.com/?sv=2019-12-12&ss=bfqt&srt=sco&sp=rwdlacupx&se=2020-07-30T14:32:28Z&st=2020-07-30T06:32:28Z&spr=https&sig=BktAkNlQCtqh8I307hqO2eBXtzeT6g%2Fp8TGurjktgIE%3D'
+
+
 }
 
 
@@ -58,5 +60,5 @@ copysitetostorage >> /tmp/storage_logs.txt
 copydatatostorage >> /tmp/storage_logs.txt
 createstoragetar >> /tmp/storage_logs.txt
 create_container >> /tmp/storage_logs.txt
-#install_azcopy  >> /tmp/storage_logs.txt
-upload_files >> /tmp/storage_logs.txt
+#install_azcopy >> /tmp/storage_logs.txt
+upload_files  >> /tmp/storage_logs.txt
